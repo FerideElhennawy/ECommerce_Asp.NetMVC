@@ -1,0 +1,58 @@
+﻿@using StrongEnergyCompany.Models;
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="card">
+    <h2 class="card-body">
+        Your Box of Products
+    </h2>
+    <div class="table-responsive">
+        <table class="table table-hover table-info">
+            <thead class="bg-info text-white">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Stok</th>
+                    <th scope="col">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Urun item in Model)
+                {
+                    <tr>
+                        <th></th>
+                        <th scope="row">@item.UrunKodu</th>
+                        <td>@item.Fiyat $</td>
+                        <td>@item.StokMiktari</td>
+                        <td>
+                            <input id=demoInput type=number min=50 max=10000>
+                            <button onclick="increment()">+</button>
+                            <button onclick="decrement()">-</button>
+                        </td>
+                    </tr>
+                }
+
+
+
+            </tbody>
+        </table>
+
+    </div>
+        <div class="row jumbotron">
+            <div class="col-2">
+                <a role="button" class="btn btn-success rounded" href="#">Make an Order</a>
+            </div>
+        </div>
+</div>
+<script>
+    function increment() {
+        document.getElementById('demoInput').stepUp();
+    }
+    function decrement() {
+        document.getElementById('demoInput').stepDown();
+    }
+</script>

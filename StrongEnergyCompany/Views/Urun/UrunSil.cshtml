@@ -1,0 +1,13 @@
+﻿@using StrongEnergyCompany.Models;
+@model Urun
+@{
+    ViewBag.Title = "UrunSil";
+}
+
+<h2>Warning!!</h2>
+
+<form action="/Urun/UrunSil" method="post">
+    <input type="hidden" name="UrunKodu" value="@Model.UrunKodu"/>
+    <label>Do you want to delete the product @Model.UrunKodu ?</label>
+    <input type="submit" value="Yes"/>
+</form>

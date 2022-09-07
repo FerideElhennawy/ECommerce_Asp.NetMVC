@@ -1,0 +1,18 @@
+﻿@using StrongEnergyCompany.Models;
+@model List<Kategori>
+
+@{
+    ViewBag.Title = "Category";
+}
+
+<h2>Categories</h2>
+
+
+@foreach (Kategori item in Model)
+{
+    <div class="feature-title">
+        <h5> @item.Ad </h5>
+    </div>
+    
+}
+

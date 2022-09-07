@@ -1,0 +1,81 @@
+﻿@using StrongEnergyCompany.Models;
+@model List<Musteri>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title">Clients</h2>
+                                        <br />
+                                        <a class="btn btn-success fa-align-right" href="/Musteri/MusteriEkle">Add Client</a>
+                                <div class="table-responsive">
+                                    <div id="multi_col_order_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                        <div id="multi_col_order_filter" class="dataTables_filter">
+                                            <br />
+                                            <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="multi_col_order"></label>
+                                            <br />
+                                        </div>
+                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                        <table id="multi_col_order" class="table table-striped table-bordered display no-wrap dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="multi_col_order_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="multi_col_order" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Ad: activate to sort column descending" style="width: 103px;">First name</th>
+                                                <th class="sorting" tabindex="0" aria-controls="multi_col_order" rowspan="1" colspan="1" aria-label="Soyad: activate to sort column ascending" style="width: 100px;">Last name</th>
+                                                <th class="sorting" tabindex="0" aria-controls="multi_col_order" rowspan="1" colspan="1" aria-label="SirketAdi: activate to sort column ascending" style="width: 228px;">Company Name</th>
+                                                <th class="sorting" tabindex="0" aria-controls="multi_col_order" rowspan="1" colspan="1" aria-label="Unvan: activate to sort column ascending" style="width: 112px;">Position</th>
+                                                <th class="sorting" tabindex="0" aria-controls="multi_col_order" rowspan="1" colspan="1" aria-label="UlkeAdi: activate to sort column ascending" style="width: 88px;">Country</th>
+                                                <th class="sorting" tabindex="0" aria-controls="multi_col_order" rowspan="1" colspan="1"  aria-label="ElemanID: activate to sort column ascending" style="width: 88px;">Salesman Id</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (Musteri item in Model)
+                                            {
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1 sorting_2">@item.Ad</td>
+                                                    <td>@item.Soyad</td>
+                                                    <td>@item.SirketAdi</td>
+                                                    <td>@item.Unvan</td>
+                                                    <td>@item.UlkeAdi</td>
+                                                    <td>@item.ElemanID</td>
+                                                    <td><a href="#">Delete Client</a></td>
+
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table></div></div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-7">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="multi_col_order_paginate">
+                                            <ul class="pagination">
+                                            <li class="paginate_button page-item previous disabled" id="multi_col_order_previous">
+                                                <a href="#" aria-controls="multi_col_order" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                                                </li>
+                                            <li class="paginate_button page-item active">
+                                                <a href="#" aria-controls="multi_col_order" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                                </li>
+                                            <li class="paginate_button page-item ">
+                                                <a href="#" aria-controls="multi_col_order" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                                                </li>
+                                            <li class="paginate_button page-item "><a href="#" aria-controls="multi_col_order" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                            <li class="paginate_button page-item "><a href="#" aria-controls="multi_col_order" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                            <li class="paginate_button page-item "><a href="#" aria-controls="multi_col_order" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                            <li class="paginate_button page-item "><a href="#" aria-controls="multi_col_order" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                            <li class="paginate_button page-item next" id="multi_col_order_next"><a href="#" aria-controls="multi_col_order" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+                                            </ul>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

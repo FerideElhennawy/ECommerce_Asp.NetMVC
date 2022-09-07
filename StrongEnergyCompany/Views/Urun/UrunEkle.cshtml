@@ -1,0 +1,133 @@
+﻿@using StrongEnergyCompany.Models;
+@model Urun
+
+@{
+    ViewBag.Title = "UrunEkle";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                @if (Model.UrunKodu == null)
+                {
+                    <h3 class="card-title">Add New Product</h3>
+                }
+                else
+                {
+                    <h3 class="card-title">Update Product</h3>
+                }
+                <form action="/Urun/UrunEkle" method="post" role="form">
+                    <div class="form-body">
+                        <label>Product Name </label>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @if (Model.UrunKodu != null)
+                                    {
+                                        <label>@Model.UrunKodu</label>
+                                        <input type="hidden" name="UrunKodu" value="@Model.UrunKodu">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" placeholder="HD 50 CD/SF" name="UrunKodu">
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <label>Price </label>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @if (Model.Fiyat == null)
+                                    {
+                                        <input type="number" class="form-control" placeholder="16" name="Fiyat">
+                                    }
+                                    else
+                                    {
+                                        <input value="@Model.Fiyat" type="number" class="form-control" name="Fiyat">
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <label>Stok </label>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    @if (Model.StokMiktari == null)
+                                    {
+                                        <input type="number" class="form-control" placeholder="200" name="StokMiktari">
+                                    }
+                                    else
+                                    {
+                                        <input value="@Model.StokMiktari" type="number" class="form-control" placeholder="200" name="StokMiktari">
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                        <label>Category Code </label>
+                        <div class="form-group">
+                            @if (Model.KategoriKodu == 0)
+                            {
+                                <select class="form-control" name="KategoriKodu">
+                                    @foreach (Kategori item in ViewBag.Kategori)
+                                    {
+                                        <option value="@item.KategoriKodu">@item.Ad</option>
+
+                                    }
+                                </select>
+
+                            }
+                            else
+                            {
+                                <label>@Model.KategoriKodu</label>
+                                <input  type="hidden" name="KategoriKodu" value="@Model.KategoriKodu">
+                            }
+
+                        </div>
+                        <label>Product Details </label>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    @if (Model.Detaylar == null)
+                                    {
+                                        <input type="text" class="form-control" placeholder="is a super high performance diesel engine oil which ..." name="Detaylar">
+                                    }
+                                    else
+                                    {
+                                        <input value="@Model.Detaylar" type="text" class="form-control" placeholder="is a super high performance diesel engine oil which ..." name="Detaylar">
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                        <label>Product Spacifiaction </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @if (Model.Özellikler == null)
+                                    {
+                                        <input type="text" class="form-control" placeholder="API CD/SF,..." name="Özelliker">
+
+                                    }
+                                    else
+                                    {
+                                        <input value="@Model.Özellikler" type="text" class="form-control" placeholder="API CD/SF,..." name="Özelliker">
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-info">Submit</button>
+                            <button type="reset" class="btn btn-dark">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

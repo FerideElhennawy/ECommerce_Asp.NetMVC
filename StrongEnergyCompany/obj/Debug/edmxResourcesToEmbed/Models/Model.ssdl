@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MadeniYağlar_DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Fatura">
+    <Key>
+      <PropertyRef Name="FaturaNo" />
+    </Key>
+    <Property Name="FaturaNo" Type="int" Nullable="false" />
+    <Property Name="Tarih" Type="datetime" />
+    <Property Name="Fiyat" Type="float" />
+    <Property Name="SiparisNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Il">
+    <Key>
+      <PropertyRef Name="IlAdi" />
+    </Key>
+    <Property Name="IlAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UlkeAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KargoFirma">
+    <Key>
+      <PropertyRef Name="FirmaKodu" />
+    </Key>
+    <Property Name="FirmaKodu" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="40" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="KategoriKodu" />
+    </Key>
+    <Property Name="KategoriKodu" Type="int" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="Musteri">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Eposta" Type="nvarchar" MaxLength="30" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="60" />
+    <Property Name="TelNo" Type="nvarchar" MaxLength="24" />
+    <Property Name="SirketAdi" Type="nvarchar" MaxLength="60" />
+    <Property Name="Unvan" Type="nvarchar" MaxLength="30" />
+    <Property Name="ElemanID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="UlkeAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SepetKodu" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SatisElemani">
+    <Key>
+      <PropertyRef Name="ElemanID" />
+    </Key>
+    <Property Name="ElemanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TCKimlikNo" Type="nvarchar" MaxLength="11" />
+    <Property Name="Eposta" Type="nvarchar" MaxLength="30" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="60" />
+    <Property Name="TelNo" Type="nvarchar" MaxLength="24" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sepet">
+    <Key>
+      <PropertyRef Name="SepetKodu" />
+    </Key>
+    <Property Name="SepetKodu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MadeniYağlar_Database.dbo.SepeteEkle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SepeteEkle">
+    <Key>
+      <PropertyRef Name="SepetKodu" />
+      <PropertyRef Name="UrunKodu" />
+    </Key>
+    <Property Name="SepetKodu" Type="int" Nullable="false" />
+    <Property Name="UrunKodu" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Siparis">
+    <Key>
+      <PropertyRef Name="SiparisNo" />
+    </Key>
+    <Property Name="SiparisNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tarih" Type="datetime" />
+    <Property Name="KargoFirmaKodu" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SepetKodu" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SirketYonetici">
+    <Key>
+      <PropertyRef Name="YoneticiID" />
+    </Key>
+    <Property Name="YoneticiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TCKimlikNo" Type="int" />
+    <Property Name="Unvan" Type="nvarchar" MaxLength="30" />
+    <Property Name="Eposta" Type="nvarchar" MaxLength="30" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="60" />
+    <Property Name="TelNo" Type="nvarchar" MaxLength="24" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ulke">
+    <Key>
+      <PropertyRef Name="UlkeAdi" />
+    </Key>
+    <Property Name="UlkeAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Urun">
+    <Key>
+      <PropertyRef Name="UrunKodu" />
+    </Key>
+    <Property Name="UrunKodu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Fiyat" Type="int" />
+    <Property Name="StokMiktari" Type="int" />
+    <Property Name="KategoriKodu" Type="int" Nullable="false" />
+    <Property Name="Detaylar" Type="nvarchar" MaxLength="500" />
+    <Property Name="Özellikler" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Sifre" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="tip" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Fatura_Siparis">
+    <End Role="Siparis" Type="Self.Siparis" Multiplicity="1" />
+    <End Role="Fatura" Type="Self.Fatura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Siparis">
+        <PropertyRef Name="SiparisNo" />
+      </Principal>
+      <Dependent Role="Fatura">
+        <PropertyRef Name="SiparisNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Il_Ulke">
+    <End Role="Ulke" Type="Self.Ulke" Multiplicity="1" />
+    <End Role="Il" Type="Self.Il" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ulke">
+        <PropertyRef Name="UlkeAdi" />
+      </Principal>
+      <Dependent Role="Il">
+        <PropertyRef Name="UlkeAdi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Musteri_SatisElemani">
+    <End Role="SatisElemani" Type="Self.SatisElemani" Multiplicity="1" />
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SatisElemani">
+        <PropertyRef Name="ElemanID" />
+      </Principal>
+      <Dependent Role="Musteri">
+        <PropertyRef Name="ElemanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Musteri_Sepet">
+    <End Role="Sepet" Type="Self.Sepet" Multiplicity="1" />
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sepet">
+        <PropertyRef Name="SepetKodu" />
+      </Principal>
+      <Dependent Role="Musteri">
+        <PropertyRef Name="SepetKodu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Musteri_Ulke">
+    <End Role="Ulke" Type="Self.Ulke" Multiplicity="1" />
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ulke">
+        <PropertyRef Name="UlkeAdi" />
+      </Principal>
+      <Dependent Role="Musteri">
+        <PropertyRef Name="UlkeAdi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Musteri_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Musteri">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SatisElemani_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="SatisElemani" Type="Self.SatisElemani" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SatisElemani">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SepeteEkle_Sepet">
+    <End Role="Sepet" Type="Self.Sepet" Multiplicity="1" />
+    <End Role="SepeteEkle" Type="Self.SepeteEkle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sepet">
+        <PropertyRef Name="SepetKodu" />
+      </Principal>
+      <Dependent Role="SepeteEkle">
+        <PropertyRef Name="SepetKodu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SepeteEkle_Urun">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
+    <End Role="SepeteEkle" Type="Self.SepeteEkle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="UrunKodu" />
+      </Principal>
+      <Dependent Role="SepeteEkle">
+        <PropertyRef Name="UrunKodu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Siparis_KargoFirma">
+    <End Role="KargoFirma" Type="Self.KargoFirma" Multiplicity="1" />
+    <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KargoFirma">
+        <PropertyRef Name="FirmaKodu" />
+      </Principal>
+      <Dependent Role="Siparis">
+        <PropertyRef Name="KargoFirmaKodu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SirketYonetici_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="SirketYonetici" Type="Self.SirketYonetici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SirketYonetici">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urun_Kategori">
+    <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+    <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="KategoriKodu" />
+      </Principal>
+      <Dependent Role="Urun">
+        <PropertyRef Name="KategoriKodu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MadeniYağlar_DatabaseModelStoreContainer">
+    <EntitySet Name="Fatura" EntityType="Self.Fatura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Il" EntityType="Self.Il" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KargoFirma" EntityType="Self.KargoFirma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SatisElemani" EntityType="Self.SatisElemani" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sepet" EntityType="Self.Sepet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Siparis" EntityType="Self.Siparis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SirketYonetici" EntityType="Self.SirketYonetici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ulke" EntityType="Self.Ulke" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SepeteEkle" EntityType="Self.SepeteEkle" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SepeteEkle].[SepetKodu] AS [SepetKodu], 
+    [SepeteEkle].[UrunKodu] AS [UrunKodu]
+    FROM [dbo].[SepeteEkle] AS [SepeteEkle]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Fatura_Siparis" Association="Self.FK_Fatura_Siparis">
+      <End Role="Siparis" EntitySet="Siparis" />
+      <End Role="Fatura" EntitySet="Fatura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Il_Ulke" Association="Self.FK_Il_Ulke">
+      <End Role="Ulke" EntitySet="Ulke" />
+      <End Role="Il" EntitySet="Il" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Musteri_SatisElemani" Association="Self.FK_Musteri_SatisElemani">
+      <End Role="SatisElemani" EntitySet="SatisElemani" />
+      <End Role="Musteri" EntitySet="Musteri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Musteri_Sepet" Association="Self.FK_Musteri_Sepet">
+      <End Role="Sepet" EntitySet="Sepet" />
+      <End Role="Musteri" EntitySet="Musteri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Musteri_Ulke" Association="Self.FK_Musteri_Ulke">
+      <End Role="Ulke" EntitySet="Ulke" />
+      <End Role="Musteri" EntitySet="Musteri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Musteri_User" Association="Self.FK_Musteri_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Musteri" EntitySet="Musteri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SatisElemani_User" Association="Self.FK_SatisElemani_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="SatisElemani" EntitySet="SatisElemani" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SepeteEkle_Sepet" Association="Self.FK_SepeteEkle_Sepet">
+      <End Role="Sepet" EntitySet="Sepet" />
+      <End Role="SepeteEkle" EntitySet="SepeteEkle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SepeteEkle_Urun" Association="Self.FK_SepeteEkle_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="SepeteEkle" EntitySet="SepeteEkle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Siparis_KargoFirma" Association="Self.FK_Siparis_KargoFirma">
+      <End Role="KargoFirma" EntitySet="KargoFirma" />
+      <End Role="Siparis" EntitySet="Siparis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SirketYonetici_User" Association="Self.FK_SirketYonetici_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="SirketYonetici" EntitySet="SirketYonetici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="Urun" EntitySet="Urun" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="df2412a601fd4704997038d1f24b96be" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.Fatura" Width="1.5" PointX="12.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.Il" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.KargoFirma" Width="1.5" PointX="7.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.Kategori" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.Musteri" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.SatisElemani" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.Sepet" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.Siparis" Width="1.5" PointX="10" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.SirketYonetici" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.Ulke" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.Urun" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MadeniYağlar_DatabaseModel.User" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_Fatura_Siparis" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_Il_Ulke" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_Siparis_KargoFirma" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_Urun_Kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_Musteri_SatisElemani" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_Musteri_Sepet" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_Musteri_Ulke" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_Musteri_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_SatisElemani_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.FK_SirketYonetici_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MadeniYağlar_DatabaseModel.SepeteEkle" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,125 @@
+﻿@using StrongEnergyCompany.Models;
+
+@{
+    ViewBag.Title = "MusteriEkle";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Add New Client</h2>
+                <form action="/Musteri/MusteriEkle" method="post" role="form">
+                    <div class="form-body">
+
+                        @*<input type="number" name="MusteriID" value="@Model.MusteriID" />*@
+                        <label>First Name </label>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter first name" name="Ad">
+                                </div>
+                            </div>
+                        </div>
+                        <label>Last Name </label>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter surname" name="Soyad">
+                                </div>
+                            </div>
+                        </div>
+                        <label> E-mail</label>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="xxx@gmail.com" name="Eposta">
+                                </div>
+                            </div>
+                        </div>
+
+                        <label>Tel </label>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="(ex: +90 555 555 5555)" name="Detaylar">
+                                </div>
+                            </div>
+                        </div>
+
+                        <label>Salesman Name</label>
+                        <div class="form-group">
+                            <select class="form-control" name="ElemanID">
+                                @foreach (SatisElemani item in ViewBag.SatisElemani)
+                                {
+                                    <option value="@item.ElemanID">@item.Ad</option>
+
+                                }
+                            </select>
+                        </div>
+                        <label>Country </label>
+                        <div class="form-group">
+                            <select class="form-control" name="UlkeAdi">
+                                @foreach (Ulke item in ViewBag.Ulke)
+                                {
+                                    <option value="@item.UlkeAdi">@item.UlkeAdi</option>
+
+                                }
+                            </select>
+                        </div>
+
+                        <label>City </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter city" name="IlAdi">
+                                </div>
+                            </div>
+                        </div>
+
+                        <label>Company </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter the company " name="Sirket">
+                                </div>
+                            </div>
+                        </div>
+                        <label>Position </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter the position of the client" name="Unvan">
+                                </div>
+                            </div>
+                        </div>
+                        <label>Username </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter a username (ex: MohamedSelim1)" name="UserID">
+                                </div>
+                            </div>
+                        </div>
+
+                        <label>Password </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter a strong Password (ex: a6s7d7f6A)" name="Sifre">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-info">Submit</button>
+                            <button type="reset" class="btn btn-dark">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
