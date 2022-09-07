@@ -1,7 +1,4 @@
-# LubricantOilsCompany_Website
-A web page application developed using ASP.NET and MVC technology
-
-# INTRODUCTION
+# ECommerce_Asp.NetMVC
 This project aims to create a simple web page application using ASP.NET and MVC technology and supported by SQL in the background. While doing this project, primarily C#, HTML, CSS, and SQL languages were also used. The system consists of 3 main roles: the owner of the company as the admin, the salesman as the seller, and the customer. Company owners have access to both salesmen and customers _such as adding or deleting a salesman or customer or just updating their information. Salespeople deal with customers only. Customers only make orders from abroad. The company sells different products such as engine oil, antifreeze, and dental lubricants. Any owner or salesman can update, add or delete a product. Any order must consist of at least 1 container _approximately 15 tons_ and at least 50 units of one product.
 
 # PLAN OF THE PROJECT PROCESS
@@ -34,4 +31,5 @@ This project aims to create a simple web page application using ASP.NET and MVC 
 ▪ An order can have only one invoice. An invoice can only be an invoice for one order.
 ▪ An order is delivered by only one shipping company. A shipping company can forward more than one order.
 
+# Database Design (Crow’s Foot)
 ![image](https://user-images.githubusercontent.com/40718869/188876440-fdfed37e-374a-4da2-9599-39745898185e.png)
